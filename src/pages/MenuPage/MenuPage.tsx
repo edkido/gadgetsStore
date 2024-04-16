@@ -15,7 +15,9 @@ export const MenuPage = () => {
   const favourites = products.filter(
     product => product.addedToFavourites === true,
   );
-  const carts = products.filter(product => product.addedToCart === true);
+  const carts = products
+    .filter(product => product.addedToCart === true)
+    .reduce((acc, el) => acc + el.quantity, 0);
 
   return (
     <div className="pageMenu">
@@ -64,10 +66,8 @@ export const MenuPage = () => {
           <NavLink to="/cart" className={getLinkLogoMenuClass}>
             <img src={ICONS.cart} alt="cart" />
 
-            {!!carts.length && (
-              <div className="pageMenu__bottom__icon__counter">
-                {carts.length}
-              </div>
+            {carts > 0 && (
+              <div className="pageMenu__bottom__icon__counter">{carts}</div>
             )}
           </NavLink>
         </div>

@@ -6,17 +6,13 @@ import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { ProductDetails } from '../../types/productDetails';
 import { ProductState } from '../../store/storeContext';
 import { getSuggestedProducts } from '../../helpers/helpers';
-import {
-  // getProductById,
-  getProductsByCategory as productsByCategory,
-} from '../../apiHelper/product';
+import { getProductsByCategory as productsByCategory } from '../../apiHelper/product';
 import { ProductsSlider } from '../../components/ProductsSlider/ProductsSlider';
 import { ICONS } from '../../images/icons/Icons';
 import { Loader } from '../../components/Loader';
 import { ErrorMessage } from '../../components/ErrorMessage/ErrorMessage';
 import { COLOR_HEX } from '../../utils/colorHex';
 import { ProductNotFound } from '../../components/ProductNotFound/ProductNotFound';
-// import { BASE_API_URL } from '../../utils/fetch';
 
 export const ProductDetailsPage = () => {
   const { productId = '' } = useParams();
